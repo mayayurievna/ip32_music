@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Добавление и редактирование песни{% endblock title %}
+{% block content %}
+    <form method="POST">
+            {% csrf_token %}
+        <table>
+            {{ form }}
+        </table>
+        <input type="submit" value="Сохранить" >
+    </form>
+{% endblock content %}

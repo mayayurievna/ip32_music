@@ -1,0 +1,33 @@
+  
+{% extends "base.html" %}
+{% block title %}Песни{% endblock title %}
+{% block content %}
+<table>
+    <thead>
+        <tr>
+            <td>№</td>
+            <td>Название</td>
+            <td>Длительность</td>
+            <td>Жанры</td>
+            <td>Редактировать</td>
+            <td>Удалить</td>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for t in tracks %}
+            <tr>
+                <td>{{t.id}}</td>
+                <td>{{t.title}}</td>
+                <td>{{t.duration}}</td>
+                <td>
+                    {{t.genre.all|join:', '}}
+                </td>
+                <td><a href="/edittrack/{{t.id}}">Редактировать</a></td>
+                <td><a href="/deletetrack/{{t.id}}">Удалить</a></td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a href="/addtrack">Добавить трэк</a>
+{% endblock content %}
