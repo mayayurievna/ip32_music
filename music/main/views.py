@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.http import HttpResponseRedirect
-from .models import Genre, Tracks
-from .forms import GenreForm, TrackForm
+from .models import Genre, Tracks, Artist
+from .forms import GenreForm, TrackForm, ArtistForm
 # Create your views here.
 
 def index(request):
@@ -15,6 +15,10 @@ def genres(request):
 def tracks(request):
     track = Tracks.objects.all()
     return render(request, 'track.html', {'tracks': track})
+
+def artists(request):
+    a = Artist.objects.all()
+    return render(request, 'artists.html', {'artists': a})
 
 def deleteGenres(request, id_genre):
     genre = Genre.objects.get(id=id_genre)

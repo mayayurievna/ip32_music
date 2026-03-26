@@ -18,4 +18,6 @@ urlpatterns = [
     path('addtrack/', views.addTrack),
     path('edittrack/<int:id_track>', views.editTrack),
     path('tracks/', views.editTrack),
+    
+    path('artists/', views.artists),
 ]
