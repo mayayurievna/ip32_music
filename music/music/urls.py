@@ -20,4 +20,6 @@ urlpatterns = [
     path('tracks/', views.editTrack),
     
     path('artists/', views.artists),
+    path('artists/', views.addArtists),
+    path('addartist/', views.addArtists),
 ]
