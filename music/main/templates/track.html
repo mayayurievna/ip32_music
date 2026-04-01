@@ -2,6 +2,14 @@
 {% extends "base.html" %}
 {% block title %}Песни{% endblock title %}
 {% block content %}
+
+    <select name="artist" onchange="this.form.submit()">  
+        {% for a in artists %}
+            <option value="{{a.id}}">{{a}}</option>
+        {% endfor %}
+    </select>  
+
+
 <table>
     <thead>
         <tr>

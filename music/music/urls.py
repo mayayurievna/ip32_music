@@ -5,19 +5,16 @@ from main import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index),
-    path('genres', views.genres),
-    path('track', views.tracks),
+    path('genres/', views.genres),
+    path('track/', views.tracks),
     path('deletegenre/<int:id_genre>', views.deleteGenres),
-    path('genres/', views.addGenres),
     path('addgenre/', views.addGenres),
     path('editgenre/<int:id_genre>', views.editGenre),
-    path('genres/', views.editGenre),
 
     path('deletetrack/<int:id_track>', views.deleteTrack),
-    path('tracks/', views.addTrack),
     path('addtrack/', views.addTrack),
     path('edittrack/<int:id_track>', views.editTrack),
-    path('tracks/', views.editTrack),
     
     path('artists/', views.artists),
+    
 ]
