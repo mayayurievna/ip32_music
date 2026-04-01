@@ -14,7 +14,14 @@ def genres(request):
 
 def tracks(request):
     track = Tracks.objects.all()
-    return render(request, 'track.html', {'tracks': track})
+    a = Artist.objects.all()
+    artist = None
+    if request.method == "POST":
+        id_artist = request.POST.get('artist')
+        artist = Artist.objects.get(id=id_artist)
+        track = Tracks.objects.filter(artist=artist)
+        
+    return render(request, 'track.html', {'tracks': track, 'artists': a, 'current_artist': artist})
 
 def addArtists(request):
     if request.method == "POST":

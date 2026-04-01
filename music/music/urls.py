@@ -16,7 +16,5 @@ urlpatterns = [
     path('edittrack/<int:id_track>', views.editTrack),
     
     path('artists/', views.artists),
-
-    path('artists/', views.addArtists),
     path('addartist/', views.addArtists),
 ]

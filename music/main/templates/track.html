@@ -3,12 +3,18 @@
 {% block title %}Песни{% endblock title %}
 {% block content %}
 
-    <select name="artist" onchange="this.form.submit()">  
-        {% for a in artists %}
-            <option value="{{a.id}}">{{a}}</option>
-        {% endfor %}
-    </select>  
-
+    <form method="post">
+        {% csrf_token %}
+        <select name="artist" onchange="this.form.submit()">  
+            {% for a in artists %}
+                {% if a.id == current_artist.id %}
+                    <option value="{{a.id}}" selected>{{a}}</option>
+                {% else %}
+                    <option value="{{a.id}}">{{a}}</option>
+                {% endif %}
+            {% endfor %}
+        </select>  
+    </form>
 
 <table>
     <thead>
